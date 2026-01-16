@@ -1,0 +1,19 @@
+steps:
+  - &proc_add_1
+    name: "処理1: +1"
+    run: |
+      value=10
+      result=$((value + 1))
+      echo "処理1の結果: $result"
+
+  - &proc_add_2
+    name: "処理2: +2"
+    run: |
+      value=10
+      result=$((value + 2))
+      echo "処理2の結果: $result"
+
+# アンカーを呼び出し（エイリアス）
+use_steps:
+  - *proc_add_1
+  - *proc_add_2
